@@ -385,7 +385,7 @@
     }
 }
 
-@media (min-width: 0px) and (max-width: 768px) {
+@media (min-width: 0px) and (max-width: 1000px) {
 
     .group-content.blur {
         filter: blur(1px);
