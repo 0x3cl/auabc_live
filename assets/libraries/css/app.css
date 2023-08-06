@@ -536,7 +536,7 @@
             transform: rotate(-42deg);
             position: absolute;
             z-index: 999;
-            left: -600px !important;
+            left: -500px !important;
             top: -380px !important;
         }
     }
