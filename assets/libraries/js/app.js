@@ -21,14 +21,27 @@ $(window).scroll(function() {
 
 // HAMBURGER ANIMATION
 
+let isSidebarActive = false;
+
 $('.hamburger-wrapper').click(function() {
-    $(this).toggleClass('active');
-    $('.sidebar').toggleClass('active');
-    $('.group-content').toggleClass('blur');
+    if(!isSidebarActive) {
+        $(this).addClass('active');
+        $('.sidebar').addClass('active');
+        $('.group-content').addClass('blur');
+        isSidebarActive = true;
+    } else {
+        $(this).removeClass('active')
+        $('.sidebar').removeClass('active');
+        $('.group-content').removeClass('blur');
+        isSidebarActive = false;
+    }
+    
 });
 
 $('.group-content').click(function() {
-    $('hamburger-wrapper').toggleClass('active');
-    $('.sidebar').toggleClass('active');
-    $('.group-content').toggleClass('blur');
+    if(isSidebarActive) {
+        $('.hamburger-wrapper').removeClass('active');
+        $('.sidebar').removeClass('active');
+        $('.group-content').removeClass('blur');
+    }
 })
