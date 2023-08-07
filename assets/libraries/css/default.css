@@ -22,6 +22,7 @@
     --tertiary-background-color: #640F0F;
     --quinary-background-color: #3D1314;
     --quaternary-background-color: #6E1815;
+    --senary-background-color: #fff;
 
     --primary-text-color: #3D1314;
     --secondary-text-color: #fff;
@@ -47,10 +48,11 @@ body {
     color: var(--primary-text-color) !important;
     padding-left: 20px !important;
     padding-right: 20px !important;
-    &.active {
-        color: var(--secondary-text-color) !important;
-        background-color: var(--quinary-background-color);
-    }
+}
+
+.nav-link.active {
+    color: var(--secondary-text-color) !important;
+    background-color: var(--quinary-background-color);
 }
 
 .section-title {
@@ -58,15 +60,17 @@ body {
     z-index: 9;
     text-align: center;
     color: var(--primary-text-color);
-    & h1 {
-        font-size: 60px;
-        font-family: 'the-seasons';
-        font-weight: 600;
-        text-transform: uppercase;
-    }
-    & h5 {
-        font-family: 'Poppins';
-    }
+}
+
+.section-title h1 {
+    font-size: 60px;
+    font-family: 'the-seasons';
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.section-title h5 {
+    font-family: 'Poppins';
 }
 
 .text-justify {
@@ -83,16 +87,19 @@ body {
 .btn-custom-outline {
     border: 2px solid var(--quinary-background-color);
     transition: all ease 0.3s;
-    &:hover {
-        color: var(--secondary-text-color);
-        box-shadow: inset 8.5em 0 0 0 var(--primary-text-color);
-    }
+    font-weight: 600;
+}
+
+.btn-custom-outline:hover {
+    color: var(--secondary-text-color);
+    box-shadow: inset 8.5em 0 0 0 var(--primary-text-color);
 }
 
 .btn-custom-light {
     border: 1px solid var(--quaternary-background-color);
     background-color: var(--primary-background-color);
     text-transform: uppercase;
+    font-weight: 600;
 }
 
 @media (min-width: 0px) and (max-width: 768px) {
@@ -101,14 +108,11 @@ body {
         z-index: 9;
         text-align: center;
         color: var(--primary-text-color);
-        & h1 {
-            font-size: 30px;
-            font-family: 'the-seasons';
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        & h5 {
-            font-family: 'Poppins';
-        }
+    }
+    .section-title h1 {
+        font-size: 30px;
+        font-family: 'the-seasons';
+        font-weight: 600;
+        text-transform: uppercase;
     }
 }
