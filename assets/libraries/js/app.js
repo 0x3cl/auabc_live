@@ -8,41 +8,7 @@ setTimeout(() => {
     exitLoader() 
 }, 3000);
 
-// LOAD LOADER
-
-function startLoader() {
-    const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary', '.loader-content'];
-    let delay = 0;
-    
-    loaders.forEach((loader) => {
-        setTimeout(() => {
-            $(loader).css('left', '0');
-        }, delay);
-        delay += 200;
-    });
-
-    setTimeout(() => {
-        $('.loader-content .logo-content').fadeIn(500);
-    }, delay + 500);
-}
-
-function exitLoader() {
-    $('.loader-content .logo-content').fadeOut(500, () => {
-        const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary', '.loader-content'];
-        let delay = 200;
-
-        loaders.reverse().forEach((loader) => {
-            setTimeout(() => {
-                $(loader).css('left', '100%');
-            }, delay);
-            delay += 200;
-        });
-
-        setTimeout(() => {
-            $('.loader').fadeOut();
-        }, delay);
-    });
-}
+isCookieAccepted();
 
 // SHOW HEADER WHEN WINDOW SCROLL
 
@@ -86,4 +52,55 @@ $('.group-content').click(function() {
         $('.sidebar').removeClass('active');
         $('.group-content').removeClass('blur');
     }
-})
+});
+
+// ACCEPT COOKIE
+$('#cookie-accept').click(function() {
+    localStorage.setItem('isCookieAccepted', 'true');
+    isCookieAccepted();
+});
+
+// LOAD LOADER
+
+function startLoader() {
+    const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary', '.loader-content'];
+    let delay = 0;
+    
+    loaders.forEach((loader) => {
+        setTimeout(() => {
+            $(loader).css('left', '0');
+        }, delay);
+        delay += 200;
+    });
+
+    setTimeout(() => {
+        $('.loader-content .logo-content').fadeIn(500);
+    }, delay);
+}
+
+function exitLoader() {
+    $('.loader-content .logo-content').fadeOut(500, () => {
+        const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary', '.loader-content'];
+        let delay = 200;
+
+        loaders.reverse().forEach((loader) => {
+            setTimeout(() => {
+                $(loader).css('left', '100%');
+            }, delay);
+            delay += 200;
+        });
+
+        setTimeout(() => {
+            $('.loader').fadeOut();
+        }, delay);
+    });
+}
+
+function isCookieAccepted() {
+    const isCookieAccepted = localStorage.getItem('isCookieAccepted');
+    if(isCookieAccepted === 'true') {
+        $('.cookie-policy').slideUp();
+    } else {
+        $('.cookie-policy').slideDown();
+    }
+}
