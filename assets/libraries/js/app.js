@@ -118,8 +118,6 @@ function isCookieAccepted() {
 
 let activeIndex = 2; 
 
-changeLogo(0);
-
 function changeLogo(direction) {
     const orgLogos = $('.org-logo');
     const orgDesc = $('.org-description');
@@ -138,4 +136,7 @@ function changeLogo(direction) {
     $(orgLogos[activeIndex]).addClass('active');
     $(orgDesc[activeIndex]).addClass('active');
 }
+
+changeLogo(0);
+
 
