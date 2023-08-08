@@ -35,6 +35,81 @@ body {
     background-color: var(--primary-background-color);
 }
 
+/* LOADER */
+
+.loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--quinary-background-color);
+    z-index: 999991;
+}
+
+.loader-primary {
+    width: 100%;
+    height: inherit;
+    position: fixed;
+    left: -100%;
+    background-color: var(--primary-background-color);
+    z-index: 999991;
+    transition: all ease 0.3s;
+}
+.loader-secondary {
+    width: 100%;
+    height: inherit;
+    position: fixed;
+    left: -100%;
+    background-color: var(--secondary-background-color);
+    z-index: 999992;
+    transition: all ease 0.3s;
+}
+.loader-tertiary {
+    width: 100%;
+    height: inherit;
+    position: fixed;
+    left: -100%;
+    background-color: var(--tertiary-background-color);
+    z-index: 999992;
+    transition: all ease 0.3s;
+}
+.loader-content {
+    width: 100%;
+    height: inherit;
+    position: fixed;
+    left: -100%;
+    z-index: 999993;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all ease 0.3s;
+}
+.loader-content .logo-content {
+    display: none;
+}
+.loader-content .logo-content img:nth-child(1),
+.loader-content .logo-content img:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    margin: -50px;
+    position: relative;
+    z-index: -1;
+}
+.loader-content .logo-content img:nth-child(2) {
+    width: 250px;
+    height: 250px;
+    z-index: 999;
+    position: relative;
+}
+
+/*  */
+
+.d-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
 /* TYPOGRAPHY */
 
 .text-link {
@@ -73,6 +148,21 @@ body {
     font-family: 'Poppins';
 }
 
+.sub-section-title {
+    position: relative;
+    z-index: 9;
+    text-align: center;
+    color: var(--primary-text-color);
+}
+
+.sub-section-title  {
+    font-size: 40px;
+    font-family: 'the-seasons';
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 50px 0 50px 0;
+}
+
 .text-justify {
     text-align: justify;
 }
@@ -102,8 +192,85 @@ body {
     font-weight: 600;
 }
 
+/* CARDS */
+
+.card.card-design {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0px;
+    cursor: pointer;
+}
+.card.card-design img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.3s;
+}
+.card.card-design img:hover {
+    transform: scale(1.2);
+}
+.card.card-design .card-body {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.card.card-design .card-date,
+.card.card-design .card-title small {
+    font-size: 12px;
+    font-weight: 700;
+}
+.card.card-design .card-date,
+.card.card-design .card-title * {
+    position: relative;
+    color: var(--secondary-text-color);
+    text-transform: capitalize;
+    z-index: 999;
+}
+.card.card-design .card-body::after {
+    content: '';
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: rgb(128,19,19);
+    background: linear-gradient(0deg, rgba(128,19,19,0.9419354838709677) 0%, rgba(128,19,19,0.10967741935483866) 100%);
+}
+.card.card-design-secondary .card-body .item div {
+  font-size: 14px;
+  font-weight: 500;
+}
+.card.card-design-secondary .card-body .item div:nth-child(1) {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.card.card-design-secondary .card-body .timeline-bar {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+}
+
+
 @media (min-width: 0px) and (max-width: 768px) {
-    .section-title {
+    .loader-content .logo-content img:nth-child(1),
+    .loader-content .logo-content img:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        margin: -50px;
+        position: relative;
+        z-index: -1;
+    }
+    .loader-content .logo-content img:nth-child(2) {
+        width: 200px;
+        height: 200px;
+        z-index: 999;
+        position: relative;
+    }
+        .section-title {
         position: relative;
         z-index: 9;
         text-align: center;
