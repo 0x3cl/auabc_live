@@ -2,6 +2,26 @@
 
 @import url(default.css);
 
+/* COOKIE POLICY */
+
+.cookie-policy {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: none;
+    z-index: 9999;
+    background: rgba(128, 19, 19, 0.8);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(208, 25, 25, 0.07);
+}
+
+.cookie-policy small {
+    font-size: 14px;
+    color: var(--secondary-text-color)
+}
+
 /* SCROLL TO TOP BUTTON */
 
 .scroll-top {
