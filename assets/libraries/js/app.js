@@ -55,9 +55,20 @@ $('.group-content').click(function() {
 });
 
 // ACCEPT COOKIE
+
 $('#cookie-accept').click(function() {
     localStorage.setItem('isCookieAccepted', 'true');
     isCookieAccepted();
+});
+
+// DESCLINE COOKIE
+
+$('#cookie-decline').click(function() {
+    localStorage.setItem('isCookieAccepted', 'false');
+    $('.cookie-policy').fadeOut();
+    setTimeout(() => {
+        isCookieAccepted();
+    }, 3000);
 });
 
 // LOAD LOADER
