@@ -115,3 +115,27 @@ function isCookieAccepted() {
         $('.cookie-policy').slideDown();
     }
 }
+
+let activeIndex = 2; 
+
+changeLogo(0);
+
+function changeLogo(direction) {
+    const orgLogos = $('.org-logo');
+    const orgDesc = $('.org-description');
+    
+    $(orgLogos[activeIndex]).removeClass('active');
+    $(orgDesc[activeIndex]).removeClass('active');
+
+    activeIndex += direction;
+
+    if (activeIndex < 0) {
+        activeIndex = orgLogos.length - 1;
+    } else if (activeIndex >= orgLogos.length) {
+        activeIndex = 0;
+    }
+
+    $(orgLogos[activeIndex]).addClass('active');
+    $(orgDesc[activeIndex]).addClass('active');
+}
+
