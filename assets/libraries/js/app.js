@@ -1,55 +1,46 @@
-// START LOADER
-startLoader();
-
-// EXIT LOADER AFTER 3000 MILLISECONDS
-setTimeout(exitLoader, 3000);
-
 // INITIALIZE AOS
+
 AOS.init();
 
-function startLoader() {
-    const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary'];
-    let delay = 200;
+startLoader();
 
-    loaders.reduce((promise, loader) => {
-        return promise.then(() => {
-            return new Promise(resolve => {
-                setTimeout(() => {
-                    $(loader).css('left', '0');
-                    resolve();
-                }, delay);
-            });
-        });
-    }, Promise.resolve())
-    .then(() => {
-        return new Promise(resolve => {
-            setTimeout(() => {
-                $('.loader-content').css('left', '0');
-                resolve();
-            }, delay);
-        });
-    })
-    .then(() => {
-        $('.loader-content .logo-content').fadeIn(500);
-        $('.loader').css('background-color', 'transparent');
+setTimeout(() => {
+    exitLoader() 
+}, 3000);
+
+// LOAD LOADER
+
+function startLoader() {
+    const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary', '.loader-content'];
+    let delay = 0;
+    
+    loaders.forEach((loader) => {
+        setTimeout(() => {
+            $(loader).css('left', '0');
+        }, delay);
+        delay += 200;
     });
+
+    setTimeout(() => {
+        $('.loader-content .logo-content').fadeIn(500);
+    }, delay + 500);
 }
 
 function exitLoader() {
     $('.loader-content .logo-content').fadeOut(500, () => {
-        const loaders = ['.loader-tertiary', '.loader-secondary', '.loader-primary'];
+        const loaders = ['.loader-primary', '.loader-secondary', '.loader-tertiary', '.loader-content'];
         let delay = 200;
 
-        loaders.reduce((promise, loader) => {
-            return promise.then(() => {
-                return new Promise(resolve => {
-                    setTimeout(() => {
-                        $(loader).css('left', '100%');
-                        resolve();
-                    }, delay);
-                });
-            });
-        }, Promise.resolve());
+        loaders.reverse().forEach((loader) => {
+            setTimeout(() => {
+                $(loader).css('left', '100%');
+            }, delay);
+            delay += 200;
+        });
+
+        setTimeout(() => {
+            $('.loader').fadeOut();
+        }, delay);
     });
 }
 
