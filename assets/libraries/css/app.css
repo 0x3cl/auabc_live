@@ -17,6 +17,10 @@
     border: 1px solid rgba(208, 25, 25, 0.07);
 }
 
+.cookie-description {
+    width: 50%;
+}
+
 .cookie-policy small {
     font-size: 14px;
     color: var(--secondary-text-color)
@@ -463,6 +467,10 @@
 
     .group-content.blur {
         filter: blur(1px);
+    }
+
+    .cookie-description {
+        width: 100%;
     }
 
     /* SIDEBAR */
